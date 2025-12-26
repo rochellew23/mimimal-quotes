@@ -3,79 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    
     <title>Quote</title>
-
-    <style>
-
-        .widget {
-            padding: 5px 5px ;
-            color: #000000;
-            text-align: center;
-                max-width: 95%;
-            margin: auto;
-            font-variant-caps: petite-caps;
-            font-size: 2em;
-
-        }
-
-        div {
-             width: 95%;
-             min-height: 100px;
-
-            background:
-                linear-gradient(to right, black 4px, transparent 4px) 0 0,
-                linear-gradient(to right, black 4px, transparent 4px) 0 100%,
-                linear-gradient(to left, black 4px, transparent 4px) 100% 0,
-                linear-gradient(to left, black 4px, transparent 4px) 100% 100%,
-                linear-gradient(to bottom, black 4px, transparent 4px) 0 0,
-                linear-gradient(to bottom, black 4px, transparent 4px) 100% 0,
-                linear-gradient(to top, black 4px, transparent 4px) 0 100%,
-                linear-gradient(to top, black 4px, transparent 4px) 100% 100%;
-
-            background-repeat: no-repeat;
-            background-size: 20px 20px;
-}
-
-     
-    </style>
 </head>
+
 <body>
 
     <div class="widget" id="widget"></div>
+    <script src="script.js"></script>
 
-
-<script>
-
-quotes=[
-"Little by little, what you’ve begun will naturally become important to you. What you need at the start is a little bit of curiosity.",
-"Flowers still look pretty when they’re dying.",
-"Always an angel, never a god",
-"I am built upon the small things I do every day, and the end results are no more than a byproduct of that.",
-"There are some flowers you only see when you take detours.",
-"Talent is something you make bloom, instinct is something you polish.",
-"Courage need not be remembered, for it is never forgotten.",
-"Despite everything, it’s still you.",
-];
-
-const INTERVAL = 86400;
-
-function dispalyQuote(){
-
-    document.getElementById('widget').innerHTML =quotes[0];
-    quotes.forEach((quote, i) => {
-        setTimeout(() => {
-            document.getElementById('widget').innerHTML =quote;
-        }, i * INTERVAL);  
-    });
-    }
-
-    function dispalyWidget() {
-        dispalyQuote();
-        setTimeout(dispalyWidget, quotes.length*INTERVAL);
-    }
-    dispalyWidget()
-
-</script>
 
 </body>
 </html>

@@ -1,0 +1,51 @@
+/* 1. Define the Standard (Day) Colors */
+:root {
+    --bg-color: #ffffff;      /* White background */
+    --theme-color: #2c2c2b;   /* Black text and lines */
+}
+
+/* 2. Define the Dark Mode Colors */
+body.dark-mode {
+    --bg-color: #191919;      /* Dark Gray background */
+    --theme-color: #ffffff;   /* White text and lines */
+}
+
+/* 3. Apply the variables to the body */
+body {
+    background-color: var(--bg-color);
+    transition: background-color 0.5s, color 0.5s; /* Smooth fade effect */
+    margin: 0;
+    font-family: monospace; /* Optional: keeps font consistent */
+}
+
+.widget {
+    padding: 5px 5px;
+    color: var(--theme-color); /* Uses the variable */
+    text-align: center;
+    max-width: 95%;
+    margin: auto;
+    font-variant-caps: petite-caps;
+    font-size: 2em;
+    padding-top: 50px; /* Added spacing so it isn't stuck at the top */
+}
+
+div.widget {
+    width: 95%;
+    min-height: 100px;
+
+    /* Here is the magic: We replaced 'black' with 'var(--theme-color)'.
+    Now the lines will automatically change color when dark mode is on.
+    */
+    background:
+        linear-gradient(to right, var(--theme-color) 4px, transparent 4px) 0 0,
+        linear-gradient(to right, var(--theme-color) 4px, transparent 4px) 0 100%,
+        linear-gradient(to left, var(--theme-color) 4px, transparent 4px) 100% 0,
+        linear-gradient(to left, var(--theme-color) 4px, transparent 4px) 100% 100%,
+        linear-gradient(to bottom, var(--theme-color) 4px, transparent 4px) 0 0,
+        linear-gradient(to bottom, var(--theme-color) 4px, transparent 4px) 100% 0,
+        linear-gradient(to top, var(--theme-color) 4px, transparent 4px) 0 100%,
+        linear-gradient(to top, var(--theme-color) 4px, transparent 4px) 100% 100%;
+
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+}
